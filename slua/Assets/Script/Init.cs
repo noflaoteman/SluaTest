@@ -4,7 +4,7 @@ using SLua;
 using System;
 using UnityEngine.UIElements;
 
-[CustomLuaClassAttribute] 
+[CustomLuaClassAttribute]
 public class Init : MonoBehaviour
 {
 
@@ -20,8 +20,9 @@ public class Init : MonoBehaviour
     static public Action MouseButtonDownAction;
     static public Action MouseButtonUpAction;
     static public Action<float> MouseAxisMoveAction;
-    
-    static public RaycastHit[] RaycastAll(Ray ray) {
+
+    static public RaycastHit[] RaycastAll(Ray ray)
+    {
         return Physics.RaycastAll(ray);
     }
 
@@ -71,7 +72,7 @@ public class Init : MonoBehaviour
             _luaUpdate.call();
         }
 
-        if (Input.GetMouseButton(0)) 
+        if (Input.GetMouseButton(0))
         {
             MouseButtonAction?.Invoke();
         }
