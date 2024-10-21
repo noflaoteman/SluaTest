@@ -705,8 +705,9 @@ namespace SLua
 
     class CodeGenerator
     {
-        //同时有部分接口可能在移动平台上不存在, 这导致在发布移动平台的时候报告找不到接口的错误,
-        //所以默认slua已经将4.6.1中遇到的这部分接口也屏蔽了, 在未来的版本中可能遇到更多类似接口, 你仅需要将对应的接口加入 memberFilter 列表
+        /// <summary>
+        /// 这里是屏蔽的是移动平台上的接口
+        /// </summary>
         static List<string> memberFilter = new List<string>
         {
             "AnimationClip.averageDuration",

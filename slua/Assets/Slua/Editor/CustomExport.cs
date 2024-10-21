@@ -35,12 +35,14 @@ namespace SLua
         }
 
         /// <summary>
-        /// slua支持手动导出任何自定义接口, 为此你仅需要将对应的类加入CustomExport OnAddCustomClass() 函数的 list列表里, 例如:
+        /// slua中的自定义接口
         /// </summary>
         /// <param name="add"></param>
         public static void OnAddCustomClass(LuaCodeGen.ExportGenericDelegate add)
         {
-			// below lines only used for demostrate how to add custom class to export, can be delete on your app
+            //或者通过特性
+            //[CustomLuaClassAttribute]
+            // below lines only used for demostrate how to add custom class to export, can be delete on your app
 
             add(typeof(System.Func<int>), null);
             add(typeof(System.Action<int, string>), null);
@@ -97,7 +99,11 @@ namespace SLua
             "UnityEngine.Texture.set_imageContentsHash",
             "UnityEngine.Texture.imageContentsHash",
         };
-        // black list if white list not given
+        
+        /// <summary>
+        /// 这里写了哪些接口不需要导出
+        /// </summary>
+        /// <param name="list"></param>
         public static void OnGetNoUseList(out List<string> list)
         {
             list = new List<string>

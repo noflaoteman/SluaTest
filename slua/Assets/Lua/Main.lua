@@ -4,7 +4,7 @@ local cudeTrans;--transform
 
 local MouseButtonDownAction = function ()
     local ray = Camera.main:ScreenPointToRay(Input.mousePosition)
-    local hitInfos =  Init.RaycastAll(ray)
+    local hitInfos =  Physics.RaycastAll(ray)
     print(#hitInfos)
     if #hitInfos > 0 then
         cudeTrans = hitInfos[1].transform
