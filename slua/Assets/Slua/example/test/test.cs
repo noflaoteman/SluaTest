@@ -479,15 +479,15 @@ public class test : MonoBehaviour {
 
 //		public void RegisterFunctionStressTest ()
 //		{
-//			const int Count = 200;  // it seems to work with 41
+//			const int dataCount = 200;  // it seems to work with 41
 //			
 //				MyClass t = new MyClass ();
 //				
-//				for (int i = 1; i < Count - 1; ++i) {
+//				for (int i = 1; i < dataCount - 1; ++i) {
 //					lua.RegisterFunction ("func" + i, t, typeof(MyClass).GetMethod ("Func1"));
 //				}
 //				
-//				lua.RegisterFunction ("func" + (Count - 1), t, typeof(MyClass).GetMethod ("Func1"));
+//				lua.RegisterFunction ("func" + (dataCount - 1), t, typeof(MyClass).GetMethod ("Func1"));
 //				lua.doString ("print(func1())");
 //			}
 //		}

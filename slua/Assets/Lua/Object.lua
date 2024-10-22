@@ -1,4 +1,4 @@
-Object = {}
+_G.Object = {}
 --实例化
 function Object:new()
 	local obj = {}

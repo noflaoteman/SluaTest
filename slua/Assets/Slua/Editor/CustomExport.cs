@@ -25,6 +25,7 @@ namespace SLua
     using System.Collections.Generic;
     using System;
     using UnityEngine;
+    using UnityEngine.Events;
 
     public class CustomExport
     {
@@ -54,8 +55,12 @@ namespace SLua
             //add(typeof(Dictionary<int, string>), "DictIntStr");
             add(typeof(string), "String");
             add(typeof(Input), "Input");
+            add(typeof(UnityAction<UnityEngine.Object>),null);
+            add(typeof(Action<GameObject>), null);
             
-            
+
+
+
             // add your custom class here
             // add( type, typename)
             // type is what you want to export
