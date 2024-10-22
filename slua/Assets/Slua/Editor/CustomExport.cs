@@ -29,7 +29,8 @@ namespace SLua
 
     public class CustomExport
     {
-        public static void OnGetAssemblyToGenerateExtensionMethod(out List<string> list) {
+        public static void OnGetAssemblyToGenerateExtensionMethod(out List<string> list)
+        {
             list = new List<string> {
                 "Assembly-CSharp",
             };
@@ -55,9 +56,9 @@ namespace SLua
             //add(typeof(Dictionary<int, string>), "DictIntStr");
             add(typeof(string), "String");
             add(typeof(Input), "Input");
-            add(typeof(UnityAction<UnityEngine.Object>),null);
-            add(typeof(Action<GameObject>), null);
-            
+            add(typeof(UnityAction<UnityEngine.Object>), null);
+            add(typeof(Action<object>), null);
+
 
 
 
@@ -104,7 +105,7 @@ namespace SLua
             "UnityEngine.Texture.set_imageContentsHash",
             "UnityEngine.Texture.imageContentsHash",
         };
-        
+
         /// <summary>
         /// 这里写了哪些接口不需要导出
         /// </summary>
@@ -112,7 +113,7 @@ namespace SLua
         public static void OnGetNoUseList(out List<string> list)
         {
             list = new List<string>
-            {      
+            {
                 "HideInInspector",
                 "ExecuteInEditMode",
                 "AddComponentMenu",
@@ -121,7 +122,7 @@ namespace SLua
                 "DisallowMultipleComponent",
                 "SerializeField",
                 "AssemblyIsEditorAssembly",
-                "Attribute", 
+                "Attribute",
                 "Types",
                 "UnitySurrogateSelector",
                 "TrackedReference",
@@ -144,7 +145,7 @@ namespace SLua
                 "TextClipping",
                 "Gizmos",
                 "ADBannerView",
-                "ADInterstitialAd",            
+                "ADInterstitialAd",
                 "Android",
                 "Tizen",
                 "jvalue",
@@ -160,7 +161,7 @@ namespace SLua
                 "Handheld",
                 "LocalNotification",
                 "NotificationServices",
-                "RemoteNotificationType",      
+                "RemoteNotificationType",
                 "RemoteNotification",
                 "SamsungTV",
                 "TextureCompressionQuality",
@@ -168,7 +169,7 @@ namespace SLua
                 "TouchScreenKeyboard",
                 "MovieTexture",
                 "UnityEngineInternal",
-                "Terrain",                            
+                "Terrain",
                 "Tree",
                 "SplatPrototype",
                 "DetailPrototype",
@@ -176,8 +177,8 @@ namespace SLua
                 "MeshSubsetCombineUtility",
                 "AOT",
                 "Social",
-                "Enumerator",       
-                "SendMouseEvents",               
+                "Enumerator",
+                "SendMouseEvents",
                 "Cursor",
                 "Flash",
                 "ActionScript",
@@ -189,15 +190,15 @@ namespace SLua
                 "GraphicRebuildTracker",
                 "Advertisements",
                 "UnityEditor",
-			    "WSA",
-			    "EventProvider",
-			    "Apple",
-			    "ClusterInput",
-				"Motion",
+                "WSA",
+                "EventProvider",
+                "Apple",
+                "ClusterInput",
+                "Motion",
                 "UnityEngine.UI.ReflectionMethodsCache",
-				"NativeLeakDetection",
-				"NativeLeakDetectionMode",
-				"WWWAudioExtensions",
+                "NativeLeakDetection",
+                "NativeLeakDetectionMode",
+                "WWWAudioExtensions",
                 "UnityEngine.Experimental",
                 "Unity.Jobs",
                 "Unity.Collections",

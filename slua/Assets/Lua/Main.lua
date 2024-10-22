@@ -9,7 +9,7 @@ local MouseButtonDownAction = function()
     if #hitInfos > 0 then
         cudeTrans = hitInfos[1].transform
         print(cudeTrans.position)
-        
+    
     end
 end
 
@@ -30,21 +30,18 @@ end
 
 
 function main()
-    --local cube = GameObject.CreatePrimitive(PrimitiveType.Cube)
-    --cube.transform.position = Camera.main:ScreenToWorldPoint(Vector3(Screen.width/2,Screen.height/2,10));
-    -- Init.MouseButtonAction = MouseButtonAction
-    -- Init.MouseButtonDownAction = MouseButtonDownAction
-    -- Init.MouseButtonUpAction = MouseButtonUpAction
-    -- Init.MouseAxisMoveAction = MouseAxisMoveAction
-    --面向对象
+--local cube = GameObject.CreatePrimitive(PrimitiveType.Cube)
+--cube.transform.position = Camera.main:ScreenToWorldPoint(Vector3(Screen.width/2,Screen.height/2,10));
+-- Init.MouseButtonAction = MouseButtonAction
+-- Init.MouseButtonDownAction = MouseButtonDownAction
+-- Init.MouseButtonUpAction = MouseButtonUpAction
+-- Init.MouseAxisMoveAction = MouseAxisMoveAction
 end
 
 function Awake()
     require("Object")
-    require("SvPanel")   
-    require("CustomSV")
+    require("ObjectPool")
     
-    SvPanel:Init();
 end
 
 function Start()
@@ -56,7 +53,6 @@ function FixedUpdate()
 end
 
 function Update()
-    SvPanel.newCustomSv:CheckShowOrHide()
 end
 
 function LateUpdate()
