@@ -11,6 +11,10 @@ using UnityEngine.Events;
 [CustomLuaClass]
 public class ABMgr : MonoBehaviour
 {
+    public delegate bool ActionGoCallback(UnityEngine.Object go);
+    public ActionGoCallback callback;
+
+
     private static ABMgr instance;
 
     public static ABMgr Instance
@@ -64,12 +68,13 @@ public class ABMgr : MonoBehaviour
         }
     }
 
-    public void LoadResAsyncByType(string abName, string resName, System.Type type, Action<object> callBack, bool isSync = false)
+    [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+    public void LoadResAsyncByType(string abName, string resName, System.Type type, ActionGoCallback callBack, bool isSync = false)
     {
         StartCoroutine(ReallyLoadResAsync(abName, resName, type, callBack, isSync));
     }
 
-    public IEnumerator ReallyLoadResAsync(string abName, string resName, System.Type type, Action<object> callBack, bool isSync)
+    public IEnumerator ReallyLoadResAsync(string abName, string resName, System.Type type, ActionGoCallback callBack, bool isSync)
     {
         LoadMainAB();
         string[] dependencies = _manifest.GetAllDependencies(abName);
@@ -128,7 +133,7 @@ public class ABMgr : MonoBehaviour
         // 同步或异步加载资源
         if (isSync)
         {
-            object res = _abDic[abName].LoadAsset(resName, type);
+            UnityEngine.Object res = _abDic[abName].LoadAsset(resName, type);
             callBack(res);
         }
         else

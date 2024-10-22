@@ -576,7 +576,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1749299300}
   m_HandleRect: {fileID: 1749299299}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -738,7 +738,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1148580557}
   m_HandleRect: {fileID: 1148580556}
   m_Direction: 2
-  m_Value: 1.0000002
+  m_Value: 0.99999976
   m_Size: 0.6100001
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -885,7 +885,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1018428318}
   m_Layer: 5
-  m_Name: Content
+  m_Name: content
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1034,7 +1034,7 @@ GameObject:
   - component: {fileID: 1210859203}
   - component: {fileID: 1210859202}
   m_Layer: 5
-  m_Name: Scroll View
+  m_Name: ScrollView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

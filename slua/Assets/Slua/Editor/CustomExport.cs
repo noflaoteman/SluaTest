@@ -58,6 +58,7 @@ namespace SLua
             add(typeof(Input), "Input");
             add(typeof(UnityAction<UnityEngine.Object>), null);
             add(typeof(Action<object>), null);
+            add(typeof(UnityEngine.AssetBundle), "AssetBundle");
 
 
 

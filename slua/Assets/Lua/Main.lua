@@ -1,5 +1,4 @@
 import "UnityEngine"
-
 local cudeTrans; --transform
 
 local MouseButtonDownAction = function()
@@ -28,8 +27,8 @@ local MouseAxisMoveAction = function(scrollValue)
     cudeTrans.localScale = cudeTrans.localScale + Vector3.one * scrollValue;
 end
 
-
 function main()
+--
 --local cube = GameObject.CreatePrimitive(PrimitiveType.Cube)
 --cube.transform.position = Camera.main:ScreenToWorldPoint(Vector3(Screen.width/2,Screen.height/2,10));
 -- Init.MouseButtonAction = MouseButtonAction
@@ -39,13 +38,20 @@ function main()
 end
 
 function Awake()
-    require("Object")
-    require("ObjectPool")
-    
+    require("AssetBundleManager")
+    require("MainPanel")
+    require("ItemData")
+    require("ItemUI")
+    require("SV")
+    require("PoolMgr")
+    --ABMgr.Instance.;生成不了!!!!!!!!!!!!!!!!
 end
 
+local mainPanel
 function Start()
-
+    mainPanel = MainPanel:new()
+    local scrollView = UnityEngine.GameObject.Find("ScrollView")  -- 获取 ScrollView 对象
+    mainPanel:Init(scrollView)
 end
 
 function FixedUpdate()
@@ -53,6 +59,7 @@ function FixedUpdate()
 end
 
 function Update()
+    mainPanel:Update()
 end
 
 function LateUpdate()
@@ -66,3 +73,6 @@ end
 function OnDestroy()
 
 end
+
+
+
