@@ -1,5 +1,5 @@
 import "UnityEngine"
-local cudeTrans; --transform
+--local cudeTrans; --transform
 
 local MouseButtonDownAction = function()
     local ray = Camera.main:ScreenPointToRay(Input.mousePosition)
@@ -38,20 +38,17 @@ function main()
 end
 
 function Awake()
-    require("AssetBundleManager")
     require("MainPanel")
     require("ItemData")
     require("ItemUI")
     require("SV")
     require("PoolMgr")
-    --ABMgr.Instance.;生成不了!!!!!!!!!!!!!!!!
 end
 
 local mainPanel
 function Start()
     mainPanel = MainPanel:new()
-    local scrollView = UnityEngine.GameObject.Find("ScrollView")  -- 获取 ScrollView 对象
-    mainPanel:Init(scrollView)
+    mainPanel:Init()
 end
 
 function FixedUpdate()

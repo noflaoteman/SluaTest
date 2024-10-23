@@ -1,13 +1,10 @@
 ItemData = {}
 ItemData.__index = ItemData
 
-function ItemData:new(name, value)
+function ItemData:new(name, value,imgPath)
     local instance = setmetatable({}, ItemData)
-    instance.name = name      -- 项目名称
-    instance.value = value    -- 项目值
+    instance.name = name      -- Item名称
+    instance.value = value    -- item的数量
+    instance.path = imgPath   --图片的路径
     return instance
-end
-
-function ItemData:ToString()
-    return string.format("Name: %s, Value: %s", self.name, self.value)
 end

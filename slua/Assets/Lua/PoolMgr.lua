@@ -1,19 +1,20 @@
 PoolData = {}
 PoolData.__index = PoolData
 
-function PoolData:new(obj, poolObj)
+--池子对象(单个对象,池子的父类PoolMgr)
+function PoolData:new(go, poolMgrObj)
     local instance = setmetatable({}, PoolData)
-    instance.fatherObj = UnityEngine.GameObject(obj.name)
-    instance.fatherObj.transform.parent = poolObj.transform
+    instance.fatherObj = GameObject(go.name)
+    instance.fatherObj.transform:SetParent(poolMgrObj.transform)
     instance.poolList = {}
-    self:PushObj(instance, obj)
+    instance:PushObj(go)
     return instance
 end
 
 function PoolData:PushObj(obj)
     obj:SetActive(false)
     table.insert(self.poolList, obj)
-    obj.transform.parent = self.fatherObj.transform
+    obj.transform:SetParent(self.fatherObj.transform)
 end
 
 function PoolData:GetObj()
@@ -23,22 +24,19 @@ function PoolData:GetObj()
     local obj = self.poolList[1]
     table.remove(self.poolList, 1)
     obj:SetActive(true)
-    obj.transform.parent = nil
+    obj.transform:SetParent(nil)
     return obj
 end
 
+--池子管理器
 PoolMgr = {}
 PoolMgr.__index = PoolMgr
-
--- 存储 PoolMgr 的唯一实例
 local instance = nil
-
--- 创建 PoolMgr 的唯一实例
 function PoolMgr:new()
     if not instance then
         instance = setmetatable({}, PoolMgr)
         instance.poolDic = {}
-        instance.poolObj = UnityEngine.GameObject("PoolMgr")
+        instance.poolObj = GameObject("PoolMgr")
     end
     return instance
 end
@@ -47,20 +45,19 @@ function PoolMgr:GetObj(name, callBack)
     if self.poolDic[name] and #self.poolDic[name].poolList > 0 then
         callBack(self.poolDic[name]:GetObj())
     else
-        -- 使用 AssetBundleManager 异步加载资源
-        local function onAssetLoaded(gameObject)
-            gameObject.name = name
-            callBack(gameObject)
-        end
-        UseGameObject("prefab", name, onAssetLoaded)  -- name 可以用作 AB 包和资源名
+        ABMgr.Instance:LoadResAsyncByType("prefab",name,GameObject,function (prefab)
+            go = GameObject.Instantiate(prefab,Vector3.zero,Quaternion.identity)
+            callBack(go)
+        end,true)
+
     end
 end
 
-function PoolMgr:PushObj(name, obj)
+function PoolMgr:PushObj(name,go)
     if self.poolDic[name] then
-        self.poolDic[name]:PushObj(obj)
+        self.poolDic[name]:PushObj(go)
     else
-        self.poolDic[name] = PoolData:new(obj, self.poolObj)
+        self.poolDic[name] = PoolData:new(go, self.poolObj)
     end
 end
 

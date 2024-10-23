@@ -87,7 +87,7 @@ public class Init : MonoBehaviour
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         if (scroll != 0)
         {
-            MouseAxisMoveAction(scroll);
+            //MouseAxisMoveAction(scroll);
         }
     }
     void LateUpdate()

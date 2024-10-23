@@ -1,0 +1,35 @@
+ManifestFileVersion: 0
+CRC: 1677395691
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: a0087a7a11320bb0b4d0d95d0d3aa9ba
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 4df8c69f2c8a6ad9e3cbf82bb83e4dc3
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/UI/itemImg1.png
+- Assets/ABRes/UI/itemImg5.png
+- Assets/ABRes/UI/itemImg7.png
+- Assets/ABRes/UI/itemImg6.png
+- Assets/ABRes/UI/itemImg14.png
+- Assets/ABRes/UI/itemImg13.png
+- Assets/ABRes/UI/itemImg2.png
+- Assets/ABRes/UI/itemImg4.png
+- Assets/ABRes/UI/itemImg10.png
+- Assets/ABRes/UI/itemImg11.png
+- Assets/ABRes/UI/itemImg8.png
+- Assets/ABRes/UI/itemImg15.png
+- Assets/ABRes/UI/itemImg16.png
+- Assets/ABRes/UI/itemImg17.png
+- Assets/ABRes/UI/itemImg9.png
+- Assets/ABRes/UI/itemImg12.png
+- Assets/ABRes/UI/itemImg3.png
+Dependencies: []

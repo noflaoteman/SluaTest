@@ -11,12 +11,7 @@ using UnityEngine.Events;
 [CustomLuaClass]
 public class ABMgr : MonoBehaviour
 {
-    public delegate bool ActionGoCallback(UnityEngine.Object go);
-    public ActionGoCallback callback;
-
-
     private static ABMgr instance;
-
     public static ABMgr Instance
     {
         get
@@ -69,12 +64,12 @@ public class ABMgr : MonoBehaviour
     }
 
     [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-    public void LoadResAsyncByType(string abName, string resName, System.Type type, ActionGoCallback callBack, bool isSync = false)
+    public void LoadResAsyncByType(string abName, string resName, System.Type type, Action<UnityEngine.Object> callBack, bool isSync = false)
     {
         StartCoroutine(ReallyLoadResAsync(abName, resName, type, callBack, isSync));
     }
 
-    public IEnumerator ReallyLoadResAsync(string abName, string resName, System.Type type, ActionGoCallback callBack, bool isSync)
+    public IEnumerator ReallyLoadResAsync(string abName, string resName, System.Type type, Action<UnityEngine.Object> callBack, bool isSync)
     {
         LoadMainAB();
         string[] dependencies = _manifest.GetAllDependencies(abName);
